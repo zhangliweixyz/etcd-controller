@@ -1,0 +1,28 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: etcdclusters.etcd.database.coreos.com
+spec:
+  group: etcd.database.coreos.com
+  versions:
+    - name: v1beta2
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                version:
+                  type: string
+                size:
+                  type: integer
+  scope: Namespaced
+  names:
+    plural: etcdclusters
+    singular: etcdcluster
+    kind: EtcdCluster
+    shortNames:
+      - etcd
